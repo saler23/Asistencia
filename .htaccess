@@ -1,0 +1,18 @@
+# charset
+AddDefaultCharset UTF-8
+<IfModule mod_expires.c>
+          <FilesMatch "\.(jpe?g|png|gif|js|css)$">
+                      ExpiresActive On
+                      ExpiresDefault "access plus 1 week"
+          </FilesMatch>
+</IfModule>
+
+AddType application/x-httpd-php .html .htm
+
+RewriteEngine ON
+#RewriteBase /yourproject/
+
+#RewriteRule ^(.*)\/(.*)\/(.*)\.html$ index.php?page=$1&section=$2&ss=$3 [QSA,L]
+#RewriteRule ^(.*)\/(.*)\.html$ index.php?page=$1&section=$2 [QSA,L]
+RewriteRule ^(.*)\.html$ index.php?page=$1 [QSA,L]
+
